@@ -1,13 +1,12 @@
 <h3>Post Form</h3>
-<form action="<%= posts_path %>" method="POST">
+<%= form_tag posts_path do %>
   <label>Post title:</label><br>
-  <input type="text" id="post_title" name="post[title]"><br>
+  <%= text_field_tag :'post[title]' %><br>
 
   <label>Post description:</label><br>
-  <textarea id="post_description" name="post[description]"></textarea><br>
+  <%= text_area_tag :'post[description]' %><br>
 
-  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-  <input type="submit" value="Submit Post">
-</form>
+  <%= submit_tag "Submit Post" %>
+<% end %>
 
 <%= params.inspect %>
